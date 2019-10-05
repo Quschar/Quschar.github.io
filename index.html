@@ -314,7 +314,26 @@
 </li>
 <li><p>删除组</p>
 <p>$ groupdel <code>groupname</code></p>
-<p>​</p>
+</li>
+<li><p>给创建的用户添加 sudo 权限，其实就是将用户添加到 sudo 组中去（要用有 sudo 权限的用户进行操作）</p>
+<p>$ sudo <code>usermod</code> -aG sudo <code>username</code></p>
+</li>
+</ul>
+</li>
+<li><p>进程相关</p>
+<ul>
+<li><p>查看所有进程，每行一个进程</p>
+<p>$ ps -aux</p>
+</li>
+<li><p>显示当前运行的进程（每 3s 更新一遍）</p>
+<p>$ top</p>
+</li>
+<li><p>杀死对应 PID 的进程</p>
+<p>$ kill <code>PID</code></p>
+<p>$ kill -9 <code>PID</code>         //强制杀死</p>
+</li>
+<li><p>查看正在使用端口的进程</p>
+<p>$ netstat -tnlp</p>
 </li>
 </ul>
 </li>
@@ -629,6 +648,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ubuntu14</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">自我学习</a>
               </li>
              
@@ -642,14 +669,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Ubuntu14</a>
               </li>
             
             <div class="clearfix"></div>

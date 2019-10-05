@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="quschar的技术小窝">
 <meta property="og:description" content="起因很久以前，以为所有电脑上都是 Windows 98，再后来，知道了原来 Windows 不止 98 这一个版本，还有 xp、Vista、7。那时候我很奇怪，难道 xp 不是已经很够用得了么？为什么还要开发新的版本？后来慢慢知道，没有什是完美的，知道了这是个操作系统（虽然说不上来OS是啥玩意儿），而操作系统是需要与电脑的硬件相匹配的。 大学时，知道了除了微软公司的 Windows 系统，还有个叫">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-04T11:52:12.110Z">
+<meta property="og:updated_time" content="2019-10-05T05:04:16.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu14.04.1下我用到的几个命令">
 <meta name="twitter:description" content="起因很久以前，以为所有电脑上都是 Windows 98，再后来，知道了原来 Windows 不止 98 这一个版本，还有 xp、Vista、7。那时候我很奇怪，难道 xp 不是已经很够用得了么？为什么还要开发新的版本？后来慢慢知道，没有什是完美的，知道了这是个操作系统（虽然说不上来OS是啥玩意儿），而操作系统是需要与电脑的硬件相匹配的。 大学时，知道了除了微软公司的 Windows 系统，还有个叫">
@@ -198,7 +198,26 @@
 </li>
 <li><p>删除组</p>
 <p>$ groupdel <code>groupname</code></p>
-<p>​</p>
+</li>
+<li><p>给创建的用户添加 sudo 权限，其实就是将用户添加到 sudo 组中去（要用有 sudo 权限的用户进行操作）</p>
+<p>$ sudo <code>usermod</code> -aG sudo <code>username</code></p>
+</li>
+</ul>
+</li>
+<li><p>进程相关</p>
+<ul>
+<li><p>查看所有进程，每行一个进程</p>
+<p>$ ps -aux</p>
+</li>
+<li><p>显示当前运行的进程（每 3s 更新一遍）</p>
+<p>$ top</p>
+</li>
+<li><p>杀死对应 PID 的进程</p>
+<p>$ kill <code>PID</code></p>
+<p>$ kill -9 <code>PID</code>         //强制杀死</p>
+</li>
+<li><p>查看正在使用端口的进程</p>
+<p>$ netstat -tnlp</p>
 </li>
 </ul>
 </li>
@@ -448,6 +467,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ubuntu14</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">自我学习</a>
               </li>
              
@@ -461,14 +488,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Ubuntu14</a>
               </li>
             
             <div class="clearfix"></div>
