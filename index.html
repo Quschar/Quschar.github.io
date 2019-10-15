@@ -152,6 +152,337 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-TypeScript基础小结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="TypeScript的几点优势"><a href="#TypeScript的几点优势" class="headerlink" title="TypeScript的几点优势"></a>TypeScript的几点优势</h3><ul>
+<li>可读性。TypeScript是JavaScript的超集，前者支持后者的所有语法。并在此之上对JavaScript添加了一些扩展，如interface等。</li>
+<li>静态类型检查。可以避免很多不必要的错误，不用在调试的时候才发现问题。</li>
+<li>代码提示。ts搭配vscode。</li>
+<li>代码重构。学了可知。</li>
+</ul>
+<h3 id="TypeScript基础类型"><a href="#TypeScript基础类型" class="headerlink" title="TypeScript基础类型"></a>TypeScript基础类型</h3><p>数据类型            关键字        描述<br>任意类型            any            声明为any的变量可以赋予任意类型的值<br>数字类型            number        双精度64位浮点值。它可以用来表示整数和分数。<br>                                                // let binaryLiteral : number = 0b1010(二进制)<br>                                                // let octalLiteral : number = 0o744(八进制)<br>                                                // let decLiteral : number = 6(十进制)<br>                                                // let hexLiteral : number = 0xf00d(十六进制)<br>字符串类型        string        一个字符系列，使用单引号或双引号来表示字符串类型，反引号来定义多行文本和内嵌表达式。<br>布尔类型            boolean        表示逻辑值: true 和 false.<br>数组类型            无            声明变量为数组。<br>元组            无            元组类型用来表示已知元素数量和类型的数组，各元素的类型不必相同，对应位               置的类型需要相同。<br>枚举            enum        枚举类型用于定义数值集合。<br>void             void        用于标识方法返回值的类型，表示该方法没用返回值。<br>null             null            表示对象缺失。<br>undefined        undefined    用于初始化变量为一个未定义的值。<br>never            never        never是其它类型（包括null和undefined）的子类型，代表不会出现的值。<br>【注意】TypeScript和JavaScript没有整数类型。</p>
+<h3 id="声明变量的类型及初始值"><a href="#声明变量的类型及初始值" class="headerlink" title="声明变量的类型及初始值"></a>声明变量的类型及初始值</h3><p>var [变量名] : [类型] = 值;<br>声明变量的类型但没有初始值，变量值会被设置为undefined：<br>var [变量名] : [类型];</p>
+<h4 id="类型断言（Type-Assertion）"><a href="#类型断言（Type-Assertion）" class="headerlink" title="类型断言（Type Assertion）"></a>类型断言（Type Assertion）</h4><p>类型断言可以用来手动指定一个值的类型，即允许变量从一种类型更改为另一种类型。<br>&lt;类型&gt;值<br>或<br>值 as 类型</p>
+<h4 id="类型推断"><a href="#类型推断" class="headerlink" title="类型推断"></a>类型推断</h4><p>当类型没有被给出的时候，TypeScript编译器利用类型推断来推断类型。<br>如果由于缺乏声明二不能推断出类型，那么他的类型被视为默认的动态any类型。</p>
+<h4 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h4><p>变量作用域制定了变量定义的位置。<br>程序中变量的可用性由变量作用域决定。<br>TypeScript有以下几种作用域:</p>
+<ul>
+<li>全局作用域：全局变量定义在程序结构的外部，它可以在你代码的任何位置被使用。</li>
+<li>类作用域：这个变量也可以称为字段。类变量声明在一个类中，但在类的方法外。该变量可以通过类的对象来访问。类变量也可以是静态的，静态的变量可以通过雷鸣直接进行访问。</li>
+<li>局部作用域：局部变量，局部变量只能在声明它的一个代码块（如：方法）中使用。<br>同JavaScript中的变量作用域大同小异。</li>
+</ul>
+<h4 id="TypeScript运算符"><a href="#TypeScript运算符" class="headerlink" title="TypeScript运算符"></a>TypeScript运算符</h4><p>算数运算符：+，-，×，/，%，++，–<br>逻辑运算符：&amp;&amp;，||，!<br>关系运算符：==，!=，&gt;，&lt;，&gt;=，&lt;=<br>按位运算符：&amp;，|，～，^，&lt;&lt;，&gt;&gt;，&gt;&gt;&gt;(无符号右移)<br>赋值运算符：=，+=，-=，×=，/=<br>三元/条件运算符：?<br>字符串运算符：+(连接运算符)<br>类型运算符：typeof，instanceof</p>
+<h4 id="TypeScript条件语句"><a href="#TypeScript条件语句" class="headerlink" title="TypeScript条件语句"></a>TypeScript条件语句</h4><p>if<br>    if (boolean_expression) {<br>        # todo<br>    }</p>
+<p>if…else…<br>    if (boolean_expression) {<br>        # todo one<br>    } else {<br>        # todo two<br>    }</p>
+<p>if…else if…else…<br>    if (boolean_expression_one) {<br>        # todo one<br>    } else if (boolean_expression_two) {<br>        # todo two<br>    } else {<br>        # todo three<br>    }    </p>
+<p>switch…case<br>    switch (expression) {<br>    case constant-expression:<br>        statement(s);<br>        break;    // 可选的<br>    case constant-expression:<br>        statement(s);<br>        break;<br>    default:<br>        statement(s);<br>    }</p>
+<h4 id="TypeScript循环"><a href="#TypeScript循环" class="headerlink" title="TypeScript循环"></a>TypeScript循环</h4><p>for循环<br>    for (init; condition; increment) {<br>        statement(s);<br>    }</p>
+<p>for…in循环<br>    for (var val in list) {    // val需要为string或any类型<br>        // statement<br>    }</p>
+<p>for…of、forEach、every和some循环<br>    for (let entry of someArray) {<br>        // statement<br>    }</p>
+<pre><code>list.forEach((params) =&gt; {
+    // statement    
+})    
+
+list.every(() =&gt; {
+    // statement
+})</code></pre><p>while循环<br>    while (condition) {<br>        statement(s);<br>    }</p>
+<p>do…while循环<br>    do {<br>        // statement<br>    } while (condition);</p>
+<p>break 和 continue</p>
+<h4 id="TypeScript函数"><a href="#TypeScript函数" class="headerlink" title="TypeScript函数"></a>TypeScript函数</h4><p>函数定义语法：<br>    function function_name() {<br>        // 执行代码<br>    }</p>
+<p>函数返回值<br>    function function_name() : return_type {<br>        // 语句<br>        return value;<br>    }</p>
+<p>带参数函数<br>    function function_name(param01[:datatype01], param02[:datatype02]) {<br>        // 语句<br>    } </p>
+<p>可选参数和默认参数<br>在TypeScript函数里，如果我们定义了参数，则我们必须传入这些参数，除非将这些参数设置为可选，可选参数使用问号标志。<br>以下实例，我们将lastName设置为可选参数：<br>    function buildName(firstName : string, lastName? : string) {<br>        if (lastName)<br>            return firstName + “ “ + lastName<br>        else<br>            return firstName<br>    }<br>我们也可以设置参数的默认值，这样在调用函数的时候，如果不传入该参数的值，则使用默认参数，语法格式为：<br>    function function_name(param01[:type], param02[:type] = default_value) {<br>        // 语句<br>    }<br>【注意】参数不能同时设置可选和默认</p>
+<p>剩余参数<br>用一种情况我们不知道要向函数传入多少个参数，这时候我们就可以使用剩余参数来定义。<br>剩余参数语法允许我们将一个不确定数量的参数作为一个数组传入。<br>如下，函数的最后一个命名参数restOfName以…为前缀，它将成为一个由剩余参数组成的数组，索引值从0（包括）到restOfName.length（不包括）<br>    function buildName(firstName:string, …restOfName:string[]） {<br>        return firstName + “ “ + restOfName.join(“ “);<br>    }</p>
+<p>匿名函数<br>没有函数名的函数<br>可以在程序运行时动态声明，除了没有函数名外，其他的与标准函数一样<br>我们可以将匿名函数赋值给一个变量，这种表达式就成为了函数表达式<br>语法如下：<br>var res = function([arguments]) { … }</p>
+<p>匿名函数自调用<br>匿名函数自调用在函数后使用()即可：    // 其实就是啥，就是因为没名字，所以这么整，有名字自调用直接写名字加个括号就行了<br>    (function () {<br>        var x = “hello!”<br>        console.log(x)<br>    })()<br>构造函数<br>TypeScript也支持使用JavaScript内置的构造函数Function()来定义函数：<br>    var res = new Function([arguments] { … })<br>实例：<br>    var myFunction = new Function(“a”, “b”, “return a*b”);<br>    var x = myFunction(4, 3);<br>    console.log(x);</p>
+<p>递归函数<br>例子：<br>    function factorial(number) {<br>        if (number &lt;= 0) {<br>            return 0<br>        } else {<br>            return (number * factorial(number-1))<br>        }<br>    }<br>    console.log(factorial(6))</p>
+<p>Lambda函数<br>Lambda函数也称之为箭头函数<br>箭头函数表达式的语法比函数表达式更短<br>函数只有一行语句<br>    ([param01, param02,…,param0n]) =&gt; statement;<br>以下实例声明了lambda表达式函数，函数返回两个数的和<br>    var foo = (x:number) =&gt; 10+x<br>    console.log(foo(100))</p>
+<p>函数重载<br>重载是方法名字相同，而参数不同，返回类型可以相同也可以不同<br>每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表</p>
+<h4 id="TypeScript-String-字符串"><a href="#TypeScript-String-字符串" class="headerlink" title="TypeScript String(字符串)"></a>TypeScript String(字符串)</h4><p>String对象用于处理文本（字符串）<br>语法：<br>    var txt = new String(“string”);<br>    // 或者更简单方式<br>    var txt = “string”;</p>
+<h4 id="TypeScript-Array（数组）"><a href="#TypeScript-Array（数组）" class="headerlink" title="TypeScript Array（数组）"></a>TypeScript Array（数组）</h4><p>数组对象是使用单独的变量名来存储一系列的值。<br>数组非常有用。<br>声明语法格式：<br>    var array_name[:datatype]<br>    array_name = [val01, val02, …]</p>
+<p>Array对象<br>var array_name:number[] = new Array(4)</p>
+<h4 id="TypeScript元组"><a href="#TypeScript元组" class="headerlink" title="TypeScript元组"></a>TypeScript元组</h4><h4 id="TypeScript联合类型（Union-Type）"><a href="#TypeScript联合类型（Union-Type）" class="headerlink" title="TypeScript联合类型（Union Type）"></a>TypeScript联合类型（Union Type）</h4><p>联合类型可以通过管道（|）将变量设置多种类型，赋值时可以根据设置的类型来赋值。<br>【注意】只能赋值指定的类型，如果赋值其他类型就会报错。<br>声明一个联合类型：<br>    var val : string | number<br>    val = 12<br>    console.log(“数字为” + val)<br>    val = “change”<br>    console.log(“字符串为” + val)</p>
+<h4 id="TypeScript接口"><a href="#TypeScript接口" class="headerlink" title="TypeScript接口"></a>TypeScript接口</h4><p>接口是一系列抽象方法的声明，是一些方法特征的集合，这些方法都应该是抽象的，需要由具体的类去实现，然后第三方就可以通过这组抽象方法调用，让具体的类执行具体的方法。<br>    interface interface_name {<br>    }</p>
+<h4 id="TypeScript类"><a href="#TypeScript类" class="headerlink" title="TypeScript类"></a>TypeScript类</h4><p>TypeScript是面向对象的JavaScript<br>类描述了所创建的对象共同的属性和方法<br>TypeScript支持面向对象的所有特性，比如类、接口等<br>TypeScript类定义如下：<br>    class class_name {<br>        // 类作用域<br>    }<br>定义类的关键字为class，后面紧跟类名，类可以包含以下几个模块（类的数据成员）：</p>
+<ul>
+<li><p>字段：类里面声明的变量。字段表示对象的有关数据。</p>
+</li>
+<li><p>构造函数：类实例化时调用，可以为类的对象分配内存。</p>
+</li>
+<li><p>方法：方法为对象要执行的操作。</p>
+<pre><code>class Car {
+  // 字段
+  engine : string;
+
+  // 构造函数
+  constructor(engine : string) {
+      this.engine = engine;
+  }
+
+  // 方法
+  disp() : void {
+      console.log(&quot;发动机为：&quot; + this.engine);
+  }
+}
+
+// 创建一个对象
+
+var obj = new Car(&quot;XXSY1&quot;);
+
+// 访问字段
+
+console.log(&quot;读取发动机型号：&quot; + obj.engine);
+
+// 访问方法
+
+obj.disp();</code></pre><p>​</p>
+</li>
+</ul>
+<h4 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h4><p>class child_class_name extends parent_class_name</p>
+<h4 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h4><p>用于定义类的数据成员（属性和方法）为静态的，静态成员可以通过类名调用。</p>
+<h4 id="instanceof运算符"><a href="#instanceof运算符" class="headerlink" title="instanceof运算符"></a>instanceof运算符</h4><p>用于判断对象是否为指定类型，如果是返回true，否则返回false<br>    class Person {}<br>    var obj = new Person()<br>    var isPerson = obj instanceof Person<br>    console.log(“obj对象是Person类实例化来的吗？ “ + isPerson);</p>
+<h4 id="访问控制修饰符"><a href="#访问控制修饰符" class="headerlink" title="访问控制修饰符"></a>访问控制修饰符</h4><ul>
+<li>public (默认)：公有，可以再任何地方被访问。</li>
+<li>protected ：受保护，可以被其自身以及其子类和父类访问。</li>
+<li>private：私有，只能被其定义所在的类访问。</li>
+</ul>
+<h4 id="类和接口"><a href="#类和接口" class="headerlink" title="类和接口"></a>类和接口</h4><p>类可以实现接口，使用关键字implements</p>
+<h4 id="TypeScript对象"><a href="#TypeScript对象" class="headerlink" title="TypeScript对象"></a>TypeScript对象</h4><p>对象是包含一组键值对的实例。值可以是标量、函数、数组、对象等，如下实例：<br>    var object_name = {<br>        key01: “value01”,    // 标量<br>        key02: “value02”,<br>        key03: function() {<br>            // 函数<br>        },<br>        key04: [“content01”, “content02”]    // 集合<br>    }</p>
+<h4 id="鸭子类型（Duck-Typing）"><a href="#鸭子类型（Duck-Typing）" class="headerlink" title="鸭子类型（Duck Typing）"></a>鸭子类型（Duck Typing）</h4><p>鸭子类型是动态类型的一种风格，是多态的一种形式。<br>在这种风格中，一个对象有效的语义，不是由继承自特定的类或实现特定的接口，而是由“当前方法和属性的集合”决定。<br>    可以这样表述：<br>    “当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。”</p>
+<h4 id="TypeScript模块"><a href="#TypeScript模块" class="headerlink" title="TypeScript模块"></a>TypeScript模块</h4><p>TypeScript模块的设计理念是可以更换的组织代码。<br>模块是在其自身的作用域里执行，并不是在全局作用域，这意味着定义在模块里面的变量、函数和类在模块外部是不可见的，除非明确地使用export导出它们。类似的，我们必须通过import导入其他模块的变量、函数、类等。<br>两个模块之间的关系是通过在文件级别上使用import和export建立的。<br>模块使用模块加载器去导入其它的模块。在运行时，模块加载器的作用是在执行此模块代码前去查找并执行这个模块的所有依赖。<br>模块导出使用关键字export关键字，语法如下：<br>    // 文件名：SomeInterface.ts<br>    export interface SomeInterface {<br>        // 代码部分<br>    }<br>要在另外一个文件使用该模块就需要使用import关键字来导入：<br>    import someInterfaceRef = require(“./SomeInterface”);<br>实例：</p>
+<pre><code>IShape.ts文件代码：
+/// &lt;reference path = &quot;IShape.ts&quot; /&gt;
+export interface IShape {
+  draw();
+}
+
+Circle.ts文件代码：
+import shape = require(&quot;./IShape&quot;);
+export class Circle implements shape.IShape {
+  public draw() {
+    console.log(&quot;Circle is drawn (external module)&quot;);
+  }
+}</code></pre><h4 id="TypeScript声明文件"><a href="#TypeScript声明文件" class="headerlink" title="TypeScript声明文件"></a>TypeScript声明文件</h4><p>假如我们想使用第三方库，比如jQuery，我们通常这样获取一个id是foo的元素：<br>$(‘#foo’);<br>// 或<br>jQuery(‘#foo’);<br>但是在TypeScript中，我们并不知道$或jQuery是什么，<br>这时，我们需要使用declare关键在来定义它的类型，帮助TypeScript判断我们传入的参数类型对不对：<br>declare var jQuery: (selector: string) =&gt; any;<br>jQuery(‘#foo’);<br>declare定义的类型只会用于编译时的检查，编译结果中会被删除。</p>
+<p>声明文件<br>声明文件以.d.ts为后缀，如：<br>demo.d.ts<br>声明文件或模块的语法格式如下：<br>declare module Module_Name {<br>}</p>
+<p>TypeScript引入声明文件语法格式：<br>/// <reference path="demo.d.ts"></reference></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/15/TypeScript基础小结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-动与静-强与弱" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/15/动与静-强与弱/">动与静 强与弱</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/15/动与静-强与弱/" class="archive-article-date">
+  	<time datetime="2019-10-15T02:00:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="何为动态语言、静态语言，强类型语言、弱类型语言？"><a href="#何为动态语言、静态语言，强类型语言、弱类型语言？" class="headerlink" title="何为动态语言、静态语言，强类型语言、弱类型语言？"></a>何为动态语言、静态语言，强类型语言、弱类型语言？</h3><h4 id="动态语言和静态语言"><a href="#动态语言和静态语言" class="headerlink" title="动态语言和静态语言"></a>动态语言和静态语言</h4><p>即动态类型语言和静态类型语言。</p>
+<ol>
+<li>动态类型语言：在运行期间才去进行类型检查的语言，也就是说，在使用动态语言进行编程时，永远也不用给任何变量指定数据类型（如Python和Ruby）。</li>
+<li>静态类型语言：在编译期间进行类型检查的语言，即在写程序时就要声明所有变量的数据类型，C/C++是静态类型语言的典型代表，其他静态语言还有Java等。</li>
+</ol>
+<p>对于动态语言与静态语言的区分，套用一句流行的话就是：Static typing when possible, dynamic typing when needed。</p>
+<h4 id="强类型语言和弱类型语言"><a href="#强类型语言和弱类型语言" class="headerlink" title="强类型语言和弱类型语言"></a>强类型语言和弱类型语言</h4><ol>
+<li>强类型语言：强制数据类型定义的语言。也就是说，一旦一个变量被指定了某个数据类型，如果不经过强制转换，那么它就永远是这个数据类型了。举个例子：如果你定义了一个整型变量a,那么程序根本不可能将a当作字符串类型处理。强类型定义语言是类型安全的语言，需要进行变量/对象类型声明的语言，一般情况下需要编译执行。例如C/C++/Java/C#。</li>
+<li>弱类型定义语言：数据类型可以被忽略的语言。它与强类型定义语言相反, 一个变量可以赋不同数据类型的值。</li>
+</ol>
+<h4 id="“这门语言是不是动态语言”与“这门语言是否类型安全”之间是完全没有联系的！"><a href="#“这门语言是不是动态语言”与“这门语言是否类型安全”之间是完全没有联系的！" class="headerlink" title="“这门语言是不是动态语言”与“这门语言是否类型安全”之间是完全没有联系的！"></a>“这门语言是不是动态语言”与“这门语言是否类型安全”之间是完全没有联系的！</h4>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编程语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/15/动与静-强与弱/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-一个Vue工程的创建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/14/一个Vue工程的创建/">一个Vue工程的创建</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/14/一个Vue工程的创建/" class="archive-article-date">
+  	<time datetime="2019-10-14T04:32:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前置环境"><a href="#前置环境" class="headerlink" title="前置环境"></a>前置环境</h3><ol>
+<li>node</li>
+<li>npm</li>
+<li>git</li>
+</ol>
+<h3 id="安装Vue"><a href="#安装Vue" class="headerlink" title="安装Vue"></a>安装Vue</h3><ol>
+<li><p>npm安装</p>
+<p>$ npm install vue</p>
+</li>
+<li><p>命令行工具（CLI）</p>
+<p>Vue 提供了一个<a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">官方的 CLI</a>，为单页面应用 (SPA) 快速搭建繁杂的脚手架。它为现代前端工作流提供了batteries-included 的构建设置。只需要几分钟的时间就可以运行起来并带有热重载、保存时 lint 校验，以及生产环境可用的构建版本</p>
+<p>$ npm install -g @vue/cli</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/14/一个Vue工程的创建/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Socket初探" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -745,6 +1076,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
               </li>
              
               <li class="article-tag-list-item">

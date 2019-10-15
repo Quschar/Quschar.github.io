@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Socket初探 | quschar的技术小窝</title>
+  <title>一个Vue工程的创建 | quschar的技术小窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Socket是啥？“socket”原意为”插座”，在计算机通信领域，它被翻译为”套接字”，它是计算机之间进行通信的一种约定或一种方式。通过这种约定，一台计算机可以接收其他计算机的数据，也可以向其他计算机发送数据。我们把插头插到插座上就能从电网获取电力供应，同样，为了与远程计算机进行数据传输，需要连接到因特网，而socket就是用来连接到因特网的工具。socket的典型应用就是Web服务器和浏览器：">
-<meta name="keywords" content="网络编程">
+  <meta name="description" content="前置环境 node npm git  安装Vue npm安装 $ npm install vue  命令行工具（CLI） Vue 提供了一个官方的 CLI，为单页面应用 (SPA) 快速搭建繁杂的脚手架。它为现代前端工作流提供了batteries-included 的构建设置。只需要几分钟的时间就可以运行起来并带有热重载、保存时 lint 校验，以及生产环境可用的构建版本 $ npm instal">
+<meta name="keywords" content="前端,vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Socket初探">
-<meta property="og:url" content="http://yoursite.com/2019/10/09/Socket初探/index.html">
+<meta property="og:title" content="一个Vue工程的创建">
+<meta property="og:url" content="http://yoursite.com/2019/10/14/一个Vue工程的创建/index.html">
 <meta property="og:site_name" content="quschar的技术小窝">
-<meta property="og:description" content="Socket是啥？“socket”原意为”插座”，在计算机通信领域，它被翻译为”套接字”，它是计算机之间进行通信的一种约定或一种方式。通过这种约定，一台计算机可以接收其他计算机的数据，也可以向其他计算机发送数据。我们把插头插到插座上就能从电网获取电力供应，同样，为了与远程计算机进行数据传输，需要连接到因特网，而socket就是用来连接到因特网的工具。socket的典型应用就是Web服务器和浏览器：">
+<meta property="og:description" content="前置环境 node npm git  安装Vue npm安装 $ npm install vue  命令行工具（CLI） Vue 提供了一个官方的 CLI，为单页面应用 (SPA) 快速搭建繁杂的脚手架。它为现代前端工作流提供了batteries-included 的构建设置。只需要几分钟的时间就可以运行起来并带有热重载、保存时 lint 校验，以及生产环境可用的构建版本 $ npm instal">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-09T13:23:17.238Z">
+<meta property="og:updated_time" content="2019-10-14T04:44:08.091Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Socket初探">
-<meta name="twitter:description" content="Socket是啥？“socket”原意为”插座”，在计算机通信领域，它被翻译为”套接字”，它是计算机之间进行通信的一种约定或一种方式。通过这种约定，一台计算机可以接收其他计算机的数据，也可以向其他计算机发送数据。我们把插头插到插座上就能从电网获取电力供应，同样，为了与远程计算机进行数据传输，需要连接到因特网，而socket就是用来连接到因特网的工具。socket的典型应用就是Web服务器和浏览器：">
+<meta name="twitter:title" content="一个Vue工程的创建">
+<meta name="twitter:description" content="前置环境 node npm git  安装Vue npm安装 $ npm install vue  命令行工具（CLI） Vue 提供了一个官方的 CLI，为单页面应用 (SPA) 快速搭建繁杂的脚手架。它为现代前端工作流提供了batteries-included 的构建设置。只需要几分钟的时间就可以运行起来并带有热重载、保存时 lint 校验，以及生产环境可用的构建版本 $ npm instal">
   
     <link rel="alternative" href="/atom.xml" title="quschar的技术小窝" type="application/atom+xml">
   
@@ -155,38 +155,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Socket初探" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-一个Vue工程的创建" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Socket初探
+      一个Vue工程的创建
     </h1>
   
 
         
-        <a href="/2019/10/09/Socket初探/" class="archive-article-date">
-  	<time datetime="2019-10-09T13:18:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
+        <a href="/2019/10/14/一个Vue工程的创建/" class="archive-article-date">
+  	<time datetime="2019-10-14T04:32:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Socket是啥？"><a href="#Socket是啥？" class="headerlink" title="Socket是啥？"></a>Socket是啥？</h3><h4 id="“socket”原意为”插座”，在计算机通信领域，它被翻译为”套接字”，它是计算机之间进行通信的一种约定或一种方式。通过这种约定，一台计算机可以接收其他计算机的数据，也可以向其他计算机发送数据。"><a href="#“socket”原意为”插座”，在计算机通信领域，它被翻译为”套接字”，它是计算机之间进行通信的一种约定或一种方式。通过这种约定，一台计算机可以接收其他计算机的数据，也可以向其他计算机发送数据。" class="headerlink" title="“socket”原意为”插座”，在计算机通信领域，它被翻译为”套接字”，它是计算机之间进行通信的一种约定或一种方式。通过这种约定，一台计算机可以接收其他计算机的数据，也可以向其他计算机发送数据。"></a>“socket”原意为”插座”，在计算机通信领域，它被翻译为”套接字”，它是计算机之间进行通信的一种约定或一种方式。通过这种约定，一台计算机可以接收其他计算机的数据，也可以向其他计算机发送数据。</h4><h4 id="我们把插头插到插座上就能从电网获取电力供应，同样，为了与远程计算机进行数据传输，需要连接到因特网，而socket就是用来连接到因特网的工具。"><a href="#我们把插头插到插座上就能从电网获取电力供应，同样，为了与远程计算机进行数据传输，需要连接到因特网，而socket就是用来连接到因特网的工具。" class="headerlink" title="我们把插头插到插座上就能从电网获取电力供应，同样，为了与远程计算机进行数据传输，需要连接到因特网，而socket就是用来连接到因特网的工具。"></a>我们把插头插到插座上就能从电网获取电力供应，同样，为了与远程计算机进行数据传输，需要连接到因特网，而socket就是用来连接到因特网的工具。</h4><h4 id="socket的典型应用就是Web服务器和浏览器：浏览器获取用户输入的URL，向服务器发起请求，服务器分析接收到的URL，将对应的网页内容返回给浏览器，浏览器再经过解析和渲染，就将文字、图片、视频等元素呈现给用户。"><a href="#socket的典型应用就是Web服务器和浏览器：浏览器获取用户输入的URL，向服务器发起请求，服务器分析接收到的URL，将对应的网页内容返回给浏览器，浏览器再经过解析和渲染，就将文字、图片、视频等元素呈现给用户。" class="headerlink" title="socket的典型应用就是Web服务器和浏览器：浏览器获取用户输入的URL，向服务器发起请求，服务器分析接收到的URL，将对应的网页内容返回给浏览器，浏览器再经过解析和渲染，就将文字、图片、视频等元素呈现给用户。"></a>socket的典型应用就是Web服务器和浏览器：浏览器获取用户输入的URL，向服务器发起请求，服务器分析接收到的URL，将对应的网页内容返回给浏览器，浏览器再经过解析和渲染，就将文字、图片、视频等元素呈现给用户。</h4><h4 id="学习socket，也就是学习计算机之间如何通信，并编写出实用的程序。"><a href="#学习socket，也就是学习计算机之间如何通信，并编写出实用的程序。" class="headerlink" title="学习socket，也就是学习计算机之间如何通信，并编写出实用的程序。"></a>学习socket，也就是学习计算机之间如何通信，并编写出实用的程序。</h4><h3 id="Socket的类型"><a href="#Socket的类型" class="headerlink" title="Socket的类型"></a>Socket的类型</h3><h4 id="流格式套接字（SOCK-STREAM）：使用了TCP协议"><a href="#流格式套接字（SOCK-STREAM）：使用了TCP协议" class="headerlink" title="流格式套接字（SOCK_STREAM）：使用了TCP协议"></a>流格式套接字（SOCK_STREAM）：使用了TCP协议</h4><ul>
-<li>数据在传输过程中不会消失</li>
-<li>数据是按照顺序传输的</li>
-<li>数据的发送和接收不是同步的（不存在数据边界）</li>
-</ul>
-<h4 id="数据报格式套接字（SOCK-DGRAM）：使用了UDP协议"><a href="#数据报格式套接字（SOCK-DGRAM）：使用了UDP协议" class="headerlink" title="数据报格式套接字（SOCK_DGRAM）：使用了UDP协议"></a>数据报格式套接字（SOCK_DGRAM）：使用了UDP协议</h4><ul>
-<li>强调快速传输而非传输顺序</li>
-<li>传输的数据可能丢失也可能损毁</li>
-<li>限制每次传输的数据大小</li>
-<li>数据的发送和接收是同步的（存在数据边界）</li>
-</ul>
-<h4 id="socket编程是站在传输层的基础上，所以可以使用TCP-UDP协议"><a href="#socket编程是站在传输层的基础上，所以可以使用TCP-UDP协议" class="headerlink" title="socket编程是站在传输层的基础上，所以可以使用TCP/UDP协议"></a>socket编程是站在传输层的基础上，所以可以使用TCP/UDP协议</h4><h4 id="IP地址、MAC地址、端口号这几个概念都还有印象吗？"><a href="#IP地址、MAC地址、端口号这几个概念都还有印象吗？" class="headerlink" title="IP地址、MAC地址、端口号这几个概念都还有印象吗？"></a>IP地址、MAC地址、端口号这几个概念都还有印象吗？</h4>
+        <h3 id="前置环境"><a href="#前置环境" class="headerlink" title="前置环境"></a>前置环境</h3><ol>
+<li>node</li>
+<li>npm</li>
+<li>git</li>
+</ol>
+<h3 id="安装Vue"><a href="#安装Vue" class="headerlink" title="安装Vue"></a>安装Vue</h3><ol>
+<li><p>npm安装</p>
+<p>$ npm install vue</p>
+</li>
+<li><p>命令行工具（CLI）</p>
+<p>Vue 提供了一个<a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">官方的 CLI</a>，为单页面应用 (SPA) 快速搭建繁杂的脚手架。它为现代前端工作流提供了batteries-included 的构建设置。只需要几分钟的时间就可以运行起来并带有热重载、保存时 lint 校验，以及生产环境可用的构建版本</p>
+<p>$ npm install -g @vue/cli</p>
+</li>
+</ol>
+
       
 
       
@@ -220,7 +223,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络编程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -276,7 +283,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/09/Socket初探/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/14/一个Vue工程的创建/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -290,18 +297,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/14/一个Vue工程的创建/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/15/动与静-强与弱/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          一个Vue工程的创建
+          动与静 强与弱
         
       </div>
     </a>
   
   
-    <a href="/2019/10/04/回顾我的建站过程/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">回顾我的建站过程</div>
+    <a href="/2019/10/09/Socket初探/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Socket初探</div>
       <i class="icon-circle-right"></i>
     </a>
   
